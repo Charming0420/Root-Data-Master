@@ -11,3 +11,7 @@ document.querySelector("#app > div > main > div > div > div.row.detail.common_de
 ```
 
 ### JS 代替 Python 做網頁操作 — 切換視窗 2
+
+```
+document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button.btn.v-btn.v-btn--text.theme--light.v-size--default.active").click();
+```
