@@ -26,7 +26,7 @@ def search_rootdata(apikey, query, language='en'):
     
 # Example usage
 apikey = "6YMs21ZbMTI4ADVjzaBhiqYstawe1iFj"
-query = "LeverFi"
+query = "DWF"
 
 result = search_rootdata(apikey, query)
 print(json.dumps(result, indent=4))
