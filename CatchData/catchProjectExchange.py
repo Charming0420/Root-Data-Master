@@ -1,5 +1,6 @@
+# catchProjectExchange.py
+
 import time
-import random
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
@@ -32,7 +33,7 @@ def parse_table_page(driver, page_number):
                 try:
                     more_value = tds[8].find_element(By.CLASS_NAME, "more.d-flex.align-center.justify-center.ml-1").text.strip()
                 except:
-                    more_value = '0'
+                    more_value = '2'
 
                 # 找到 class="el-tooltip investor" 並抓取兩個 img 的 alt
                 img_elements = tds[8].find_elements(By.CLASS_NAME, "el-tooltip.investor")
@@ -56,18 +57,23 @@ def parse_table_page(driver, page_number):
                     'Bybit': bybit_count
                 })
             except Exception as e:
-                print(f"Error parsing row on page {page_number}: {e}")
+                e
         print(f"Successfully parsed {len(items)} items on page {page_number}")
     except Exception as e:
         print(f"Error parsing table on page {page_number}: {e}")
 
     return items
 
-def click_next_page(driver):
+def click_next_page(driver, is_investor):
     try:
-        next_button_js = """
-        document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div:nth-child(4) > div.pagination-container.d-flex.justify-center > div > button.btn-next").click();
-        """
+        if is_investor:
+            next_button_js = """
+            document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.tokens-list > div.pagination-container.d-flex.justify-center > div > button.btn-next").click();
+            """
+        else:
+            next_button_js = """
+            document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.tokens-list > div.pagination-container.d-flex.justify-center > div > button.btn-next").click();
+            """
         driver.execute_script(next_button_js)
         print("Next button clicked successfully.")
         return True
@@ -75,8 +81,8 @@ def click_next_page(driver):
         print(f"Failed to click next button: {e}")
         return False
 
-def main():
-    url = "https://www.rootdata.com/zh/Projects/detail/DWF%20Labs?k=NDA3NQ%3D%3D"
+def main(url):
+    is_investor = "Investors/detail" in url
     driver = setup_driver()
     driver.get(url)
 
@@ -89,13 +95,19 @@ def main():
         time.sleep(3)
 
     try:
-        initial_button_js = """
-        document.querySelector("#app > div.v-application--wrap > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(3)").click();
-        """
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#app > div.v-application--wrap > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(3)")))
+        if is_investor:
+            initial_button_js = """
+            document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(3)").click();
+            """
+            WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(3)")))
+        else:
+            initial_button_js = """
+            document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(3)").click();
+            """
+            WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(2)")))
         driver.execute_script(initial_button_js)
         print("Initial button clicked successfully.")
-        time.sleep(3)
+        time.sleep(5)
     except Exception as e:
         print(f"Failed to click initial button: {e}")
         driver.quit()
@@ -118,7 +130,7 @@ def main():
                 break
 
             prev_rows = len(driver.find_elements(By.CSS_SELECTOR, "table tbody tr"))
-            if not click_next_page(driver):
+            if not click_next_page(driver, is_investor):
                 break
             time.sleep(1)  # 增加等待時間，確保頁面完全加載
             print(f"Successfully navigated to page {page_number + 1}")
@@ -129,17 +141,7 @@ def main():
 
     driver.quit()
 
-    for item in all_items:
-        print(f"Name: {item['name_value']}")
-        print(f"More Value: {item['more_value']}")
-        print(item['exchange1'])
-        print(item['exchange2'])
-        print(item['Binance'])
-        print(item['OKX'])
-        print(item['Coinbase'])
-        print(item['Bybit'])
-        print("-" * 20)
-
+    return all_items
 
 if __name__ == "__main__":
-    main()
+    url = input

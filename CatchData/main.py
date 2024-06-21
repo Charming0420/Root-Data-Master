@@ -3,6 +3,7 @@ import pandas as pd
 import time
 from catchVCInvestmentToken import main as catchVCInvestmentToken_main
 from catchVCInvestment import main as catchVCInvestment_main
+from catchProjectExchange import main as catchProjectExchange_main
 
 def main(url):
     # Step 1: Run catchVCInvestmentToken.py
@@ -50,6 +51,26 @@ def main(url):
 
     # Remove duplicate rows based on the 'Name' column
     df.drop_duplicates(subset='Name', keep='first', inplace=True)
+
+    # Step 4: Run catchProjectExchange.py and integrate the data
+    exchange_data = catchProjectExchange_main(url)
+    
+    # Add new columns for exchange data
+    df.insert(10, 'Exchange Amount', 0)
+    df.insert(11, 'Binance', 0)
+    df.insert(12, 'OKX', 0)
+    df.insert(13, 'Coinbase', 0)
+    df.insert(14, 'Bybit', 0)
+    
+    for exchange_item in exchange_data:
+        token_name = exchange_item['name_value']
+        if token_name in df['Token'].values:
+            index = df[df['Token'] == token_name].index[0]
+            df.at[index, 'Exchange Amount'] = exchange_item['more_value']
+            df.at[index, 'Binance'] = exchange_item['Binance']
+            df.at[index, 'OKX'] = exchange_item['OKX']
+            df.at[index, 'Coinbase'] = exchange_item['Coinbase']
+            df.at[index, 'Bybit'] = exchange_item['Bybit']
 
     # Save the updated CSV file
     timestamp = time.strftime("%Y%m%d-%H%M%S")
