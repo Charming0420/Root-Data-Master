@@ -33,7 +33,7 @@ def main(url):
     # Step 6: Save the updated CSV file with title
     save_dataframe(df, title)
 
-    print(f"Total items in CSV: {len(df)}")
+    # print(f"Total items in CSV: {len(df)}")
     # print(f"New items added: {new_items}")
     # print(f"Updated items with description: {updated_items}")
 

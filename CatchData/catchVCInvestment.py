@@ -45,7 +45,7 @@ def parse_list_page(html_content):
                 'description': description
             })
 
-    print(f"Total items fetched by investment data script: {len(items)}")
+    # print(f"Total items fetched by investment data script: {len(items)}")
     return items
 
 def main(url):
@@ -54,5 +54,5 @@ def main(url):
     return items
 
 if __name__ == "__main__":
-    url = "https://www.rootdata.com/Projects/detail/DWF%20Labs?k=NDA3NQ%3D%3D"
+    # url = "https://www.rootdata.com/Projects/detail/DWF%20Labs?k=NDA3NQ%3D%3D"
     main(url)

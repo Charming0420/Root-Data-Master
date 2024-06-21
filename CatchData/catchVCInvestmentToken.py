@@ -44,7 +44,7 @@ def parse_table_page(driver, page_number):
     try:
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "table")))
         rows = driver.find_elements(By.CSS_SELECTOR, "table tbody tr")
-        print(f"Found {len(rows)} rows on page {page_number}")
+        # print(f"Found {len(rows)} rows on page {page_number}")
 
         for row in rows:
             try:
@@ -81,7 +81,7 @@ def parse_table_page(driver, page_number):
                 })
             except Exception as e:
                 print(f"Error parsing row on page {page_number}: {e}")
-        print(f"Successfully parsed {len(items)} items on page {page_number}")
+        # print(f"Successfully parsed {len(items)} items on page {page_number}")
     except Exception as e:
         print(f"Error parsing table on page {page_number}: {e}")
 
@@ -98,7 +98,7 @@ def click_next_page(driver, is_investor):
             document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div:nth-child(4) > div.pagination-container.d-flex.justify-center > div > button.btn-next").click();
             """
         driver.execute_script(next_button_js)
-        print("Next button clicked successfully.")
+        # print("Next button clicked successfully.")
         return True
     except Exception as e:
         print(f"Failed to click next button: {e}")
@@ -114,7 +114,7 @@ def main(url):
     current_url = driver.current_url
     if "zh" in current_url:
         driver.get(url)
-        print("Redirected to the correct URL.")
+        # print("Redirected to the correct URL.")
         time.sleep(5)
 
     try:
@@ -129,7 +129,7 @@ def main(url):
             """
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(2)")))
         driver.execute_script(initial_button_js)
-        print("Initial button clicked successfully.")
+        # print("Initial button clicked successfully.")
         time.sleep(5)
     except Exception as e:
         print(f"Failed to click initial button: {e}")
@@ -141,22 +141,22 @@ def main(url):
 
     while True:
         try:
-            print(f"Parsing page {page_number}")
+            # print(f"Parsing page {page_number}")
             items = parse_table_page(driver, page_number)
             if not items:
-                print("No items found on this page, stopping.")
+                # print("No items found on this page, stopping.")
                 break
             all_items.extend(items)
 
             if len(items) < 20:
-                print(f"Stopping as the row count is {len(items)}.")
+                # print(f"Stopping as the row count is {len(items)}.")
                 break
 
             prev_rows = len(driver.find_elements(By.CSS_SELECTOR, "table tbody tr"))
             if not click_next_page(driver, is_investor):
                 break
             time.sleep(1.2)  # 增加等待時間，確保頁面完全加載
-            print(f"Successfully navigated to page {page_number + 1}")
+            # print(f"Successfully navigated to page {page_number + 1}")
             page_number += 1
         except Exception as e:
             print(f"An error occurred while parsing page {page_number}: {e}")
@@ -182,7 +182,7 @@ def main(url):
     df = df[['token_name', 'project_name', 'Sector', 'last_funding_time', 'funding_round', 'total_funding', 'valuation', 'Price', 'MC', 'FDV', 'Exchange']]
     df.columns = ['Token', 'Name', 'Sector', 'Date', 'Round', 'Total Funding', 'Valuation', 'Price', 'MC', 'FDV', 'Exchange']
     df.to_csv(progress_csv_path, index=False)
-    print(f"CSV file '{progress_csv_path}' created successfully.")
+    # print(f"CSV file '{progress_csv_path}' created successfully.")
 
     # for item in all_items:
     #     print(f"Project Name: {item['project_name']}")

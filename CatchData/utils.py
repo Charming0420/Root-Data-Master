@@ -109,5 +109,5 @@ def save_dataframe(df, title):
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     output_file_path = os.path.join(data_dir, f'{title}_{timestamp}.csv')
     df.to_csv(output_file_path, index=False)
-    print(f"⎷ CSV file '{output_file_path}' created successfully.")
+    print(f"⎷ CSV file '{title}_{timestamp}.csv' created successfully.")
     return output_file_path
