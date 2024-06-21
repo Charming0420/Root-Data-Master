@@ -19,6 +19,17 @@ def setup_driver():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
+def convert_special_string(value):
+    value = value.replace('$', '').strip()
+    if value.endswith('K'):
+        return float(value[:-1]) * 1_000
+    elif value.endswith('M'):
+        return float(value[:-1]) * 1_000_000
+    elif value.endswith('B'):
+        return float(value[:-1]) * 1_000_000_000
+    else:
+        return float(value)
+
 def parse_table_page(driver, page_number):
     items = []
     try:
@@ -30,10 +41,11 @@ def parse_table_page(driver, page_number):
             try:
                 tds = row.find_elements(By.TAG_NAME, "td")
                 name_value = tds[0].find_element(By.CLASS_NAME, "ml-1").text.strip()
+                
                 try:
                     more_value = tds[8].find_element(By.CLASS_NAME, "more.d-flex.align-center.justify-center.ml-1").text.strip()
                 except:
-                    more_value = '2'
+                    more_value = '0'
 
                 # 找到 class="el-tooltip investor" 並抓取兩個 img 的 alt
                 img_elements = tds[8].find_elements(By.CLASS_NAME, "el-tooltip.investor")
@@ -46,6 +58,22 @@ def parse_table_page(driver, page_number):
                 coinbase_count = 1 if exchange1.lower() == 'coinbase' or exchange2.lower() == 'coinbase' else 0
                 bybit_count = 1 if exchange1.lower() == 'bybit' or exchange2.lower() == 'bybit' else 0
 
+                # 抓取 price, mc, fdv 資料
+                try:
+                    price = convert_special_string(tds[1].text.strip())
+                except:
+                    price = 0
+                
+                try:
+                    mc = convert_special_string(tds[4].text.strip())
+                except:
+                    mc = 0
+
+                try:
+                    fdv = convert_special_string(tds[6].text.strip())
+                except:
+                    fdv = 0
+
                 items.append({
                     'name_value': name_value,
                     'more_value': more_value,
@@ -54,10 +82,14 @@ def parse_table_page(driver, page_number):
                     'Binance': binance_count,
                     'OKX': okx_count,
                     'Coinbase': coinbase_count,
-                    'Bybit': bybit_count
+                    'Bybit': bybit_count,
+                    'Price': price,
+                    'MC': mc,
+                    'FDV': fdv
                 })
             except Exception as e:
-                e
+               e
+               # print(f"Error parsing row on page {page_number}: {e}")
         print(f"Successfully parsed {len(items)} items on page {page_number}")
     except Exception as e:
         print(f"Error parsing table on page {page_number}: {e}")
@@ -86,7 +118,7 @@ def main(url):
     driver = setup_driver()
     driver.get(url)
 
-    time.sleep(5)
+    time.sleep(3)
 
     current_url = driver.current_url
     if "zh" in current_url:
@@ -133,6 +165,7 @@ def main(url):
             if not click_next_page(driver, is_investor):
                 break
             time.sleep(1)  # 增加等待時間，確保頁面完全加載
+           
             print(f"Successfully navigated to page {page_number + 1}")
             page_number += 1
         except Exception as e:
@@ -145,3 +178,17 @@ def main(url):
 
 if __name__ == "__main__":
     url = input
+
+    # for item in items:
+    #     print(f"Name: {item['name_value']}")
+    #     print(f"More Value: {item['more_value']}")
+    #     print(f"Exchange 1: {item['exchange1']}")
+    #     print(f"Exchange 2: {item['exchange2']}")
+    #     print(f"Binance: {item['Binance']}")
+    #     print(f"OKX: {item['OKX']}")
+    #     print(f"Coinbase: {item['Coinbase']}")
+    #     print(f"Bybit: {item['Bybit']}")
+    #     print(f"Price: {item['Price']}")
+    #     print(f"MC: {item['MC']}")
+    #     print(f"FDV: {item['FDV']}")
+    #     print("-" * 20)
