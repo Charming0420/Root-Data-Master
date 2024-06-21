@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from tqdm import tqdm
 
 def setup_driver():
     chrome_options = Options()
@@ -43,7 +44,7 @@ def update_dataframe(df, investment_data, exchange_data):
     new_items = 0
     updated_items = 0
 
-    for item in investment_data:
+    for item in tqdm(investment_data, desc="Integrating investment data"):
         item_name = item['name'].replace('*', '')
         if item_name.lower() not in existing_names:
             new_row = {
@@ -85,7 +86,7 @@ def update_dataframe(df, investment_data, exchange_data):
     if 'Bybit' not in df.columns:
         df.insert(14, 'Bybit', 0)
 
-    for exchange_item in exchange_data:
+    for exchange_item in tqdm(exchange_data, desc="Integrating exchange data"):
         token_name = exchange_item['name_value']
         if token_name in df['Token'].values:
             index = df[df['Token'] == token_name].index[0]
