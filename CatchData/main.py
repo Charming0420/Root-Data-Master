@@ -9,8 +9,9 @@ def main(url):
     catchVCInvestmentToken_main(url)
     
     # Load the CSV file
-    csv_file_path = '[ignore]Progress.csv'
-    df = pd.read_csv(csv_file_path)
+    data_dir = os.path.join(os.path.dirname(__file__), '..', 'Data')
+    progress_csv_path = os.path.join(data_dir, '[ignore]Progress.csv')
+    df = pd.read_csv(progress_csv_path)
     
     # Step 2: Run catchVCInvestment.py
     investment_data = catchVCInvestment_main(url)
@@ -47,11 +48,12 @@ def main(url):
             df.at[index, 'Description'] = item['description']
             updated_items += 1
 
+    # Remove duplicate rows based on the 'Name' column
+    df.drop_duplicates(subset='Name', keep='first', inplace=True)
+
     # Save the updated CSV file
-    output_dir = os.path.join('..', 'Data')
-    os.makedirs(output_dir, exist_ok=True)
     timestamp = time.strftime("%Y%m%d-%H%M%S")
-    output_file_path = os.path.join(output_dir, f'projects_{timestamp}.csv')
+    output_file_path = os.path.join(data_dir, f'projects_{timestamp}.csv')
     df.to_csv(output_file_path, index=False)
     print(f"CSV file '{output_file_path}' created successfully.")
 
