@@ -184,14 +184,14 @@ def main(url):
     df.to_csv(progress_csv_path, index=False)
     print(f"CSV file '{progress_csv_path}' created successfully.")
 
-    for item in all_items:
-        print(f"Project Name: {item['project_name']}")
-        print(f"Token Name: {item['token_name']}")
-        print(f"Funding Round: {item['funding_round']}")
-        print(f"Total Funding: {item['total_funding']}")
-        print(f"Valuation: {item['valuation']}")
-        print(f"Last Funding Time: {item['last_funding_time']}")
-        print("-" * 20)
+    # for item in all_items:
+    #     print(f"Project Name: {item['project_name']}")
+    #     print(f"Token Name: {item['token_name']}")
+    #     print(f"Funding Round: {item['funding_round']}")
+    #     print(f"Total Funding: {item['total_funding']}")
+    #     print(f"Valuation: {item['valuation']}")
+    #     print(f"Last Funding Time: {item['last_funding_time']}")
+    #     print("-" * 20)
 
 if __name__ == "__main__":
     main()

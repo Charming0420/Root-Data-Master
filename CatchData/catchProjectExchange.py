@@ -107,7 +107,7 @@ def main(url):
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(2)")))
         driver.execute_script(initial_button_js)
         print("Initial button clicked successfully.")
-        time.sleep(5)
+        time.sleep(2)
     except Exception as e:
         print(f"Failed to click initial button: {e}")
         driver.quit()
