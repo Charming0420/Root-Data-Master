@@ -1,5 +1,6 @@
 import time
 import random
+import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
@@ -28,9 +29,14 @@ def parse_table_page(driver, page_number):
         for row in rows:
             try:
                 tds = row.find_elements(By.TAG_NAME, "td")
-                project_name = tds[0].find_element(By.CSS_SELECTOR, ".el-tooltip.list_name.animation_underline").text.strip()
+                project_name_element = tds[0].find_element(By.CSS_SELECTOR, ".el-tooltip.list_name.animation_underline")
+                project_name_full = project_name_element.text.strip()
                 token_name_element = tds[0].find_elements(By.CSS_SELECTOR, ".symbol.ml-1.d-none.d-md-inline")
                 token_name = token_name_element[0].text.strip() if token_name_element else ""
+
+                # 去掉token_name和*
+                project_name = project_name_full.replace(token_name, "").replace("*", "").strip()
+
                 funding_round = tds[1].text.strip()
                 total_funding = tds[2].text.strip()
                 valuation = tds[3].text.strip()
@@ -64,12 +70,11 @@ def click_next_page(driver):
         print(f"Failed to click next button: {e}")
         return False
 
-def main():
-    url = "https://www.rootdata.com/Projects/detail/Sui?k=Mjc5Nw%3D%3D"
+def main(url):
     driver = setup_driver()
     driver.get(url)
 
-    time.sleep(5)
+    time.sleep(3)
 
     current_url = driver.current_url
     if "zh" in current_url:
@@ -109,8 +114,7 @@ def main():
             prev_rows = len(driver.find_elements(By.CSS_SELECTOR, "table tbody tr"))
             if not click_next_page(driver):
                 break
-            time.sleep(5)  # 增加等待時間，確保頁面完全加載
-            WebDriverWait(driver, 20).until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "table tbody tr")) != prev_rows)
+            time.sleep(1.2)  # 增加等待時間，確保頁面完全加載
             print(f"Successfully navigated to page {page_number + 1}")
             page_number += 1
         except Exception as e:
@@ -118,6 +122,22 @@ def main():
             break
 
     driver.quit()
+
+    # Save items to CSV
+    df = pd.DataFrame(all_items)
+
+    # 检查并填充空的Name字段
+    df['project_name'] = df.apply(lambda row: row['token_name'] if row['project_name'] == '' else row['project_name'], axis=1)
+    
+    df['Sector'] = ''
+    df['Price'] = ''
+    df['MC'] = ''
+    df['FDV'] = ''
+    df['Exchange'] = ''
+    df = df[['token_name', 'project_name', 'Sector', 'last_funding_time', 'funding_round', 'total_funding', 'valuation', 'Price', 'MC', 'FDV', 'Exchange']]
+    df.columns = ['Token', 'Name', 'Sector', 'Date', 'Round', 'Total Funding', 'Valuation', 'Price', 'MC', 'FDV', 'Exchange']
+    df.to_csv('[ignore]Progress.csv', index=False)
+    print("CSV file 'projects.csv' created successfully.")
 
     for item in all_items:
         print(f"Project Name: {item['project_name']}")
