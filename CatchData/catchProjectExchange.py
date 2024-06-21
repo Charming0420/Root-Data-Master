@@ -29,11 +29,31 @@ def parse_table_page(driver, page_number):
             try:
                 tds = row.find_elements(By.TAG_NAME, "td")
                 name_value = tds[0].find_element(By.CLASS_NAME, "ml-1").text.strip()
-                more_value = tds[8].find_element(By.CLASS_NAME, "more.d-flex.align-center.justify-center.ml-1").text.strip()
+                try:
+                    more_value = tds[8].find_element(By.CLASS_NAME, "more.d-flex.align-center.justify-center.ml-1").text.strip()
+                except:
+                    more_value = '0'
+
+                # 找到 class="el-tooltip investor" 並抓取兩個 img 的 alt
+                img_elements = tds[8].find_elements(By.CLASS_NAME, "el-tooltip.investor")
+                exchange1 = img_elements[0].get_attribute("alt").replace("{'", "").replace("'}", "") if len(img_elements) > 0 else ""
+                exchange2 = img_elements[1].get_attribute("alt").replace("{'", "").replace("'}", "") if len(img_elements) > 1 else ""
+
+                # 計算 Binance、OKX、Coinbase 和 Bybit 的次數
+                binance_count = 1 if exchange1.lower() == 'binance' or exchange2.lower() == 'binance' else 0
+                okx_count = 1 if exchange1.lower() == 'okx' or exchange2.lower() == 'okx' else 0
+                coinbase_count = 1 if exchange1.lower() == 'coinbase' or exchange2.lower() == 'coinbase' else 0
+                bybit_count = 1 if exchange1.lower() == 'bybit' or exchange2.lower() == 'bybit' else 0
 
                 items.append({
                     'name_value': name_value,
-                    'more_value': more_value
+                    'more_value': more_value,
+                    'exchange1': exchange1,
+                    'exchange2': exchange2,
+                    'Binance': binance_count,
+                    'OKX': okx_count,
+                    'Coinbase': coinbase_count,
+                    'Bybit': bybit_count
                 })
             except Exception as e:
                 print(f"Error parsing row on page {page_number}: {e}")
@@ -56,7 +76,7 @@ def click_next_page(driver):
         return False
 
 def main():
-    url = "https://www.rootdata.com/Projects/detail/Sui?k=Mjc5Nw%3D%3D"
+    url = "https://www.rootdata.com/zh/Projects/detail/DWF%20Labs?k=NDA3NQ%3D%3D"
     driver = setup_driver()
     driver.get(url)
 
@@ -66,7 +86,7 @@ def main():
     if "zh" in current_url:
         driver.get(url)
         print("Redirected to the correct URL.")
-        time.sleep(5)
+        time.sleep(3)
 
     try:
         initial_button_js = """
@@ -75,7 +95,7 @@ def main():
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#app > div.v-application--wrap > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(3)")))
         driver.execute_script(initial_button_js)
         print("Initial button clicked successfully.")
-        time.sleep(5)
+        time.sleep(3)
     except Exception as e:
         print(f"Failed to click initial button: {e}")
         driver.quit()
@@ -100,8 +120,7 @@ def main():
             prev_rows = len(driver.find_elements(By.CSS_SELECTOR, "table tbody tr"))
             if not click_next_page(driver):
                 break
-            time.sleep(5)  # 增加等待時間，確保頁面完全加載
-            WebDriverWait(driver, 20).until(lambda d: len(d.find_elements(By.CSS_SELECTOR, "table tbody tr")) != prev_rows)
+            time.sleep(1)  # 增加等待時間，確保頁面完全加載
             print(f"Successfully navigated to page {page_number + 1}")
             page_number += 1
         except Exception as e:
@@ -113,7 +132,14 @@ def main():
     for item in all_items:
         print(f"Name: {item['name_value']}")
         print(f"More Value: {item['more_value']}")
+        print(item['exchange1'])
+        print(item['exchange2'])
+        print(item['Binance'])
+        print(item['OKX'])
+        print(item['Coinbase'])
+        print(item['Bybit'])
         print("-" * 20)
+
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,6 @@
 import os
 import time
+import re
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -18,6 +19,25 @@ def setup_driver():
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
+
+def convert_to_number(value):
+    if not value or not re.search(r'\$\s*\d', value):
+        # 若 value 為空或不包含「$ 以及數字」則直接返回原始值
+        return value
+    
+    # 去掉 $ 符號
+    value = value.replace('$', '').strip()
+    
+    # 轉換規則
+    if 'K' in value:
+        return int(float(value.replace('K', '')) * 1_000)
+    elif 'M' in value:
+        return int(float(value.replace('M', '')) * 1_000_000)
+    elif 'B' in value:
+        return int(float(value.replace('B', '')) * 1_000_000_000)
+    else:
+        # 若無特殊符號則直接轉換為數字
+        return int(value)
 
 def parse_table_page(driver, page_number):
     items = []
@@ -47,6 +67,9 @@ def parse_table_page(driver, page_number):
                 total_funding = tds[2].text.strip()
                 valuation = tds[3].text.strip()
                 last_funding_time = tds[4].text.strip()
+
+                total_funding = convert_to_number(total_funding)
+                valuation = convert_to_number(valuation)
 
                 items.append({
                     'project_name': project_name,
