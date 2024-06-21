@@ -19,7 +19,7 @@ def main(url):
     
     # Step 3: Clean and integrate data
     # Remove rows where Name is missing
-    df['Name'].fillna(df['Token'], inplace=True)
+    df['Name'] = df['Name'].fillna(df['Token'])
 
     # Add new rows from investment_data to df
     existing_names = df['Name'].str.lower().tolist()
@@ -66,7 +66,12 @@ def main(url):
         token_name = exchange_item['name_value']
         if token_name in df['Token'].values:
             index = df[df['Token'] == token_name].index[0]
-            df.at[index, 'Exchange Amount'] = exchange_item['more_value']
+            # Convert more_value to integer safely
+            try:
+                exchange_amount = int(exchange_item['more_value'].replace(',', '').replace('+', '').strip())
+            except ValueError:
+                exchange_amount = 0
+            df.at[index, 'Exchange Amount'] = exchange_amount
             df.at[index, 'Binance'] = exchange_item['Binance']
             df.at[index, 'OKX'] = exchange_item['OKX']
             df.at[index, 'Coinbase'] = exchange_item['Coinbase']
