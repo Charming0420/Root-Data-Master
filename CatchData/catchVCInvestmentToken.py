@@ -22,13 +22,10 @@ def setup_driver():
 
 def convert_to_number(value):
     if not value or not re.search(r'\$\s*\d', value):
-        # 若 value 為空或不包含「$ 以及數字」則直接返回原始值
         return value
     
-    # 去掉 $ 符號
     value = value.replace('$', '').strip()
     
-    # 轉換規則
     if 'K' in value:
         return int(float(value.replace('K', '')) * 1_000)
     elif 'M' in value:
@@ -36,7 +33,6 @@ def convert_to_number(value):
     elif 'B' in value:
         return int(float(value.replace('B', '')) * 1_000_000_000)
     else:
-        # 若無特殊符號則直接轉換為數字
         return int(value)
 
 def parse_table_page(driver, page_number):
@@ -54,7 +50,6 @@ def parse_table_page(driver, page_number):
                 token_name_element = tds[0].find_elements(By.CSS_SELECTOR, ".symbol.ml-1.d-none.d-md-inline")
                 token_name = token_name_element[0].text.strip() if token_name_element else ""
 
-                # 去掉token_name和*
                 project_name_full_cleaned = project_name_full.replace("*", "").strip()
 
                 if project_name_full_cleaned.lower().endswith(token_name.lower()) and project_name_full_cleaned.lower() != token_name.lower():
@@ -155,7 +150,7 @@ def main(url):
             prev_rows = len(driver.find_elements(By.CSS_SELECTOR, "table tbody tr"))
             if not click_next_page(driver, is_investor):
                 break
-            time.sleep(1.2)  # 增加等待時間，確保頁面完全加載
+            time.sleep(1.2)  
             # print(f"Successfully navigated to page {page_number + 1}")
             page_number += 1
         except Exception as e:
@@ -171,7 +166,6 @@ def main(url):
 
     df = pd.DataFrame(all_items)
 
-    # 检查并填充空的Name字段
     df['project_name'] = df.apply(lambda row: row['token_name'] if row['project_name'] == '' else row['project_name'], axis=1)
     
     df['Sector'] = ''

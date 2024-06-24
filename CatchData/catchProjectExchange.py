@@ -47,18 +47,15 @@ def parse_table_page(driver, page_number):
                 except:
                     more_value = '0'
 
-                # 找到 class="el-tooltip investor" 並抓取兩個 img 的 alt
                 img_elements = tds[8].find_elements(By.CLASS_NAME, "el-tooltip.investor")
                 exchange1 = img_elements[0].get_attribute("alt").replace("{'", "").replace("'}", "") if len(img_elements) > 0 else ""
                 exchange2 = img_elements[1].get_attribute("alt").replace("{'", "").replace("'}", "") if len(img_elements) > 1 else ""
 
-                # 計算 Binance、OKX、Coinbase 和 Bybit 的次數
                 binance_count = 1 if exchange1.lower() == 'binance' or exchange2.lower() == 'binance' else 0
                 okx_count = 1 if exchange1.lower() == 'okx' or exchange2.lower() == 'okx' else 0
                 coinbase_count = 1 if exchange1.lower() == 'coinbase' or exchange2.lower() == 'coinbase' else 0
                 bybit_count = 1 if exchange1.lower() == 'bybit' or exchange2.lower() == 'bybit' else 0
 
-                # 抓取 price, mc, fdv 資料
                 try:
                     price = convert_special_string(tds[1].text.strip())
                 except:
@@ -194,7 +191,7 @@ def main(url):
             prev_rows = len(driver.find_elements(By.CSS_SELECTOR, "table tbody tr"))
             if not click_next_page(driver, is_investor):
                 break
-            time.sleep(1)  # 增加等待時間，確保頁面完全加載
+            time.sleep(1)  
 
             page_number += 1
         except Exception as e:
@@ -207,17 +204,3 @@ def main(url):
 
 if __name__ == "__main__":
     url = input
-
-    # for item in items:
-    #     print(f"Name: {item['name_value']}")
-    #     print(f"More Value: {item['more_value']}")
-    #     print(f"Exchange 1: {item['exchange1']}")
-    #     print(f"Exchange 2: {item['exchange2']}")
-    #     print(f"Binance: {item['Binance']}")
-    #     print(f"OKX: {item['OKX']}")
-    #     print(f"Coinbase: {item['Coinbase']}")
-    #     print(f"Bybit: {item['Bybit']}")
-    #     print(f"Price: {item['Price']}")
-    #     print(f"MC: {item['MC']}")
-    #     print(f"FDV: {item['FDV']}")
-    #     print("-" * 20)

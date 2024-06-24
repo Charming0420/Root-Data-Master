@@ -17,12 +17,10 @@ def run_with_spinner(func, *args, **kwargs):
     finally:
         stop_event.set()
         spinner_thread.join()
-        # 清除上一行的 "Loading... " 字符串
         sys.stdout.write('\r' + ' ' * 80 + '\r')
     return result
 
 def main(url):
-    # 確保 URL 沒有 /zh/
     if "com/zh/" in url:
         url = url.replace("com/zh/", "com/")
     
