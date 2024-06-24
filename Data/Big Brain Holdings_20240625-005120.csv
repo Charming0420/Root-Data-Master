@@ -1,0 +1,202 @@
+Token,Name,Sector,Date,Round,Total Funding,Valuation,Price,MC,FDV,Exchange Amount,Binance,OKX,Coinbase,Bybit,Exchange,Description
+,Decent.land,,Jun 21,--,3000000,--,,,,0,0,0,0,0,,Identity and social on Arweave
+,Sonic,,Jun 18,Series A,12000000,100000000,,,,0,0,0,0,0,,Gaming Chain on Solana
+,Kima,,Jun 12,Pre-Seed,5000000,--,,,,0,0,0,0,0,,The Universal Blockchain Settlement Layer
+,Pixelverse,,Jun 12,--,5500000,--,,,,0,0,0,0,0,,Cyberpunk fighting game
+,XOCIETY,,Jun 06,Series A,7500000,--,,,,0,0,0,0,0,,Gaming metaverse with shooter mechanics
+,Nubit,,Jun 05,Seed,8000000,--,,,,0,0,0,0,0,,Bitcoin-Native Data Availability Layer
+,IVX,,May 24,Seed,1200000,--,,,,0,0,0,0,0,,Options AMM for crypto assets
+,Aria,,May 23,Seed,--,--,,,,0,0,0,0,0,,RPG game
+,Arch Network,,May 09,Seed,7000000,--,,,,0,0,0,0,0,,Bitcoin-Native Application Platform
+,EYWA,,May 03,--,--,--,,,,0,0,0,0,0,,Cross-chain data and liquidity transfer protocol
+,Mitosis,,May 02,Seed,7000000,--,,,,0,0,0,0,0,,Liquidity protocol for the modular era
+,L3E7,,Apr 26,--,10000000,--,,,,0,0,0,0,0,,Open world RPG game
+,Natix Network,,Apr 25,Strategic,4600000,--,,,,0,0,0,0,0,,Decentralised network of cameras
+,Shiba Inu,,Apr 22,--,12000000,--,,,,0,0,0,0,0,,Decentralized meme token
+,Plena Finance,,Apr 17,--,5000000,--,,,,0,0,0,0,0,,A wallets to support Account Abstraction
+,Inference Labs,,Apr 15,Pre-Seed,2300000,--,,,,0,0,0,0,0,,Web3 AI Infrastructure
+,Mayan,,Apr 11,Seed,3000000,--,,,,0,0,0,0,0,,Cross-chain Swap Auction Protocol
+,Monad,,Apr 09,--,225000000,--,,,,0,0,0,0,0,,High-performance layer 1 blockchain
+,TODAY,,Apr 05,Seed,5000000,--,,,,0,0,0,0,0,,Social sandbox game
+,Planet Mojo,,Apr 04,Strategic,5500000,--,,,,0,0,0,0,0,,A web3 gaming metaverse
+,Zeus Network,,Apr 03,--,8000000,100000000,,,,0,0,0,0,0,,Permissionless Communication Layer on Solana and Bitcoin
+,Gomble Games,,Apr 02,--,10000000,--,,,,0,0,0,0,0,,Strategic Casual Game Studio
+,Parallel,,Mar 28,--,35000000,--,,,,0,0,0,0,0,,Sci-Fi Franchise and Card Game
+,ZKasino,,Mar 19,Series A,--,350000000,,,,0,0,0,0,0,,A decentralised betting platform
+,Ten,,Mar 15,--,9000000,30000000,,,,0,0,0,0,0,,Layer 2 Blockchain Privacy Protocol
+,BitRealms,,Mar 14,Pre-Seed,--,--,,,,0,0,0,0,0,,Metaverse and Social Gaming Platform
+,Utila,,Mar 05,Seed,11500000,--,,,,0,0,0,0,0,,Self-custody wallet platform and API
+,Sphere,,Feb 27,Seed,2800000,--,,,,0,0,0,0,0,,Payments infrastructure for crypto
+,Initia,,Feb 27,Seed,7500000,--,,,,0,0,0,0,0,,Omnichain rollups
+,Overworld,,Feb 15,Seed,10000000,--,,,,0,0,0,0,0,,Cross-Platform Multiplayer RPG
+,Watches.io,,Feb 13,Pre-Seed,1900000,--,,,,0,0,0,0,0,,Tracking and trading ecosystem for watches
+,GLIF,,Feb 06,Seed,4500000,--,,,,0,0,0,0,0,,Filecoin’s premier staking protocol
+,Exabits,,Feb 02,Pre-Seed,--,--,,,,0,0,0,0,0,,Decentralized Computing Infrastructure
+,BitFlow,,Jan 25,Pre-Seed,1300000,--,,,,0,0,0,0,0,,Decentralized Exchange
+,Synonym Finance,,Jan 24,Seed,1500000,--,,,,0,0,0,0,0,,Universal cross-chain credit layer
+,Safary,,Jan 18,Pre-Seed,2400000,--,,,,0,0,0,0,0,,Marketing stack in web3
+,Entangle,,Jan 09,Seed,4000000,--,,,,0,0,0,0,0,,Customizable and Interoperable Data Infrastructure
+,Eclipse Fi,,"Dec 27, 2023",--,1900000,--,,,,0,0,0,0,0,,Modular launch and liquidity solution
+,Fyde,,"Dec 19, 2023",Seed,3200000,--,,,,0,0,0,0,0,,On-chain treasury management solution
+,Grass,,"Dec 18, 2023",Seed,3500000,--,,,,0,0,0,0,0,,Network sharing application
+,AVNU,,"Dec, 2023",--,--,--,,,,0,0,0,0,0,,Decentralized trading protocol
+,Saturn,,"Nov 29, 2023",Pre-Seed,500000,--,,,,0,0,0,0,0,,Non-custodial peer-to-peer orderbook
+,Sleek,,"Nov 17, 2023",Seed,5000000,--,,,,0,0,0,0,0,,Web3 social platform
+,STIX,,"Oct 25, 2023",--,2700000,--,,,,0,0,0,0,0,,OTC platform for the digital asset
+,Cube.Exchange,,"Oct 24, 2023",Seed,9000000,--,,,,0,0,0,0,0,,Hybrid Crypto Trading Platform
+,Photo Finish,,"Oct 19, 2023",Seed Plus,2000000,--,,,,0,0,0,0,0,,Play-to-earn virtual horse racing ecosystem
+,Convergence,,"Oct 05, 2023",Pre-Seed,2500000,30000000,,,,0,0,0,0,0,,An On-chain RFQ primitive for provisioning protocol liquidity
+,DRiP,,"Aug 27, 2023",Seed,3000000,--,,,,0,0,0,0,0,,Digital gift NFT project on the Solana
+,LuminaDEX,,"Aug 23, 2023",Strategic,--,--,,,,0,0,0,0,0,,Decentralized Exchange
+,HypeLab,,"Aug 11, 2023",Seed,4000000,--,,,,0,0,0,0,0,,Web3 ad network
+,Aethir,,"Jul 27, 2023",Pre-A,9000000,150000000,,,,0,0,0,0,0,,"Decentralized, real-time rendering network"
+,Releap Protocol,,"Jul 25, 2023",--,2100000,--,,,,0,0,0,0,0,,Decentralized social graph protocol
+,Aark Digital,,"Jul 12, 2023",Seed,--,--,,,,0,0,0,0,0,,Decentralized derivatives exchange
+,Artela,,"Jul 12, 2023",Seed,6000000,--,,,,0,0,0,0,0,,L1 blockchain with parallel execution
+,DIN,,"Jul 05, 2023",Seed,4000000,--,,,,0,0,0,0,0,,Modular Data Pre-Processing Layer
+,Mind Network,,"Jun 29, 2023",Seed,2500000,--,,,,0,0,0,0,0,,FHE Restaking Layer
+,XPLA,,"Jun 23, 2023",Strategic,--,--,,,,0,0,0,0,0,,"The Content-driven, Universal Gaming and Entertainment Blockchain"
+,Abyss World,,"May 19, 2023",Strategic,--,100000000,,,,0,0,0,0,0,,Cloud and Chain Native AAA-level MMOARPG
+,Pudgy Penguins,,"May 09, 2023",Seed,9000000,--,,,,0,0,0,0,0,,"A collection of 8,888 NFT"
+,zkLink,,"May 04, 2023",Strategic,10000000,--,,,,0,0,0,0,0,,Trading-focused multi-chain L2 network
+,Royale Chess,,"Apr 21, 2023",Pre-Seed,1000000,--,,,,0,0,0,0,0,,Chess Battle Royale game
+,Steer Protocol,,"Apr 06, 2023",Seed,1500000,--,,,,0,0,0,0,0,,Multi-chain decentralized keeper network
+,Tensor,,"Mar 07, 2023",Seed,3000000,--,,,,0,0,0,0,0,,Solana's Leading NFT Marketplace
+,Few and Far,,"Mar 02, 2023",--,10500000,--,,,,0,0,0,0,0,,A next-generation NFT marketplace
+,Helika,,"Mar 01, 2023",Seed,4000000,--,,,,0,0,0,0,0,,Web3 gaming and NFT analytics platform
+,Tsunami Finance,,"Feb 24, 2023",Pre-Seed,1300000,--,,,,0,0,0,0,0,,Margin trading and spot exchange
+,3RM,,"Feb 21, 2023",Seed,3500000,--,,,,0,0,0,0,0,,Sales infrastructure for the decentralized internet
+,TipLink,,"Feb 21, 2023",Seed,6000000,--,,,,0,0,0,0,0,,Lightweight wallet
+,Dymension,,"Feb 09, 2023",Seed,6700000,--,,,,0,0,0,0,0,,Modular settlement layer
+,Collector,,"Feb 09, 2023",Seed,--,--,,,,0,0,0,0,0,,Bridges real world collectibles onto the blockchain
+,Versatus,,"Feb 08, 2023",Pre-Seed,1400000,20000000,,,,0,0,0,0,0,,Stateless rollup
+,Vest Exchange,,"Jan 29, 2023",Seed,--,--,,,,0,0,0,0,0,,Decentralized Perpetual Contracts Exchange
+,Intella X,,"Jan 17, 2023",Private,12000000,--,,,,0,0,0,0,0,,Web3 gaming platform
+,Open Forest Protocol,,"Jan 11, 2023",Seed,4099999,--,,,,0,0,0,0,0,,Blockchain platform for next generation forest projects
+,Nillion,,"Dec 12, 2022",--,20000000,--,,,,0,0,0,0,0,,Decentralized public network
+,Outdefine,,"Dec 09, 2022",--,2500000,--,,,,0,0,0,0,0,,A decentralized talent community
+,Openfabric AI,,"Dec, 2022",Seed,500000,10000000,,,,0,0,0,0,0,,Layer 1 for Artificial Intelligence
+,Jumbo Exchange,,"Nov 16, 2022",--,3500000,--,,,,0,0,0,0,0,,UI/UX Friendly AMM built on Near
+,PlayEmber,,"Nov 15, 2022",Seed,2300000,--,,,,0,0,0,0,0,,Mobile game studio
+,Icons of Theia / Theia Studios,,"Nov 10, 2022",--,2400000,--,,,,0,0,0,0,0,,Competitive tactical turn-based strategy game
+,Arcium,,"Nov 04, 2022",Strategic,3500000,--,,,,0,0,0,0,0,,Parallelized confidential computing network
+,Spice Finance,,"Oct 28, 2022",--,1700000,--,,,,0,0,0,0,0,,Liquidity routing protocol for NFT lending markets
+,Thala,,"Oct 26, 2022",Seed,6000000,--,,,,0,0,0,0,0,,An anti-inflation protocol
+,Helius,,"Oct 20, 2022",Seed,3100000,--,,,,0,0,0,0,0,,Solana developer platform
+,The New Computer Corporation (NCC),,"Oct 19, 2022",Seed,2500000,--,,,,0,0,0,0,0,,Web3 product studio
+,Arcade,,"Oct 19, 2022",--,3200000,--,,,,0,0,0,0,0,,GameFi platform
+,Shardeum,,"Oct 18, 2022",Seed,18200000,200000000,,,,0,0,0,0,0,,EVM-based smart contract platform
+,Minteo,,"Sep 29, 2022",Seed,4300000,--,,,,0,0,0,0,0,,Latin American NFT marketplace
+,Sintra,,"Sep 21, 2022",Seed,2000000,--,,,,0,0,0,0,0,,NFT Social Investing Network
+,B+J Studios,,"Sep 08, 2022",Series A,10000000,--,,,,0,0,0,0,0,,0 to 1 builder studio
+,Magpie Protocol,,"Sep 07, 2022",Seed,3000000,--,,,,0,0,0,0,0,,Decentralized liquidity aggregation protocol
+,Exchange Art,,"Sep 07, 2022",Seed,3200000,--,,,,0,0,0,0,0,,Fine art marketplace on Solana
+,Dust Labs,,"Sep 06, 2022",--,7000000,--,,,,0,0,0,0,0,,The firm behind popular NFT projects DeGods and y00ts
+,ULTRADE,,"Sep 06, 2022",Seed,2400000,--,,,,0,0,0,0,0,,Multichain DeFi-as-a-Service infrastructure company
+,Distributed Finance,,"Aug 23, 2022",Seed,2500000,--,,,,0,0,0,0,0,,DAO and NFT player on Algorand
+,MatchboxDAO,,"Aug 17, 2022",--,7500000,--,,,,0,0,0,0,0,,Starkware-based on-chain gaming ecosystem
+,Cookie3,,"Aug 03, 2022",Seed,2500000,--,,,,0,0,0,0,0,,MarketingFi platforms
+,Panzerdogs / WAGMI,,"Aug 03, 2022",Strategic,3350000,--,,,,0,0,0,0,0,,Solana NFT gaming project
+,Mobaverse,,"Aug, 2022",--,2000000,--,,,,0,0,0,0,0,,Web3 gaming platform
+,PortalVerse,,"Jul 06, 2022",Seed,$ Millions,45000000,,,,0,0,0,0,0,,Decentralized cloud gaming network
+,Oasys,,"Jul 06, 2022",Private,20000000,145000000,,,,0,0,0,0,0,,The blockchain optimized for gamers
+,Mona,,"Jun 30, 2022",Series A,14600000,--,,,,0,0,0,0,0,,Metaverse world-building platform
+,Mech.com,,"Jun 28, 2022",Seed,6000000,--,,,,0,0,0,0,0,,Web3 arena battle game
+,Banx,,"Jun 24, 2022",Seed,1000000,--,,,,0,0,0,0,0,,NFT lending protocol
+,SithSwap,,"Jun 22, 2022",Seed,2650000,25000000,,,,0,0,0,0,0,,Next‐gen AMM on Stark­Net
+,Crema Finance,,"Jun 17, 2022",Private,5500000,--,,,,0,0,0,0,0,,Concentrated liquidity protocol
+,Shil.me,,"Jun 09, 2022",--,1200000,--,,,,0,0,0,0,0,,Lightweight and interactive NFT display platform
+,Tatsumeeko,,"Jun 09, 2022",Seed,7500000,--,,,,0,0,0,0,0,,Immersive modern fantasy MMORPG game
+,Chillchat,,"Jun 08, 2022",Seed,6500000,--,,,,0,0,0,0,0,,Pixel art NFT metaverse
+,Walken,,"Jun 02, 2022",--,4700000,--,,,,0,0,0,0,0,,Move-to-earn game
+,Memusic,,"May 29, 2022",Seed,1100000,--,,,,0,0,0,0,0,,Blockchain music ecosystem
+,Parcl,,"May 21, 2022",Strategic,7500000,--,,,,0,0,0,0,0,,Real estate derivatives protocol
+,WayRu,,"May 19, 2022",Seed,1960000,--,,,,0,0,0,0,0,,Decentralized Internet Network
+,Goracle Network,,"May 18, 2022",Seed,1500000,--,,,,0,0,0,0,0,,Oracle network
+,Angular Finance,,"May 06, 2022",Seed,1800000,25000000,,,,0,0,0,0,0,,A cross-chain Lending market
+,Lighthouse.Storage,,"May 02, 2022",--,--,--,,,,0,0,0,0,0,,"Perpetual File Storage on IPFS, Filecoin, and Ethereum"
+,Vertex Protocol,,"Apr 26, 2022",Seed,8500000,--,,,,0,0,0,0,0,,Decentralized derivatives protocol
+,Bastion,,"Apr 22, 2022",Series A,9000000,40000000,,,,0,0,0,0,0,,The Liquidity Foundation of Aurora
+,OpenBlox,,"Apr 22, 2022",Seed,3000000,30000000,,,,0,0,0,0,0,,NFT Gaming Platform
+,Swap.net,,"Apr 21, 2022",Angel,1750000,--,,,,0,0,0,0,0,,Pro NFT aggregator for floor price trading
+,Hedge,,"Apr 19, 2022",Seed,3700000,--,,,,0,0,0,0,0,,Solana lending protocol
+,Investin,,"Apr 08, 2022",Strategic,1200000,--,,,,0,0,0,0,0,,Decentralized hedge fund management protocol
+,Attarius Network,,"Apr, 2022",--,--,--,,,,0,0,0,0,0,,All-in-one NFT ecosystem for the game industry
+,VCRED,,"Apr, 2022",--,--,--,,,,0,0,0,0,0,,Disrupting deFi through automation
+,ElasticSwap,,"Apr, 2022",Pre-Seed,--,--,,,,0,0,0,0,0,,AMM focused on elastic supply tokens
+,HaloFi,,"Mar 31, 2022",Seed,1250000,--,,,,0,0,0,0,0,,A decentralized savings pool which rewards regular saving
+,Footium,,"Mar 31, 2022",Seed,3350000,--,,,,0,0,0,0,0,,Multiplayer football management game
+,Divvy.Bet,,"Mar 22, 2022",Seed,2000000,--,,,,0,0,0,0,0,,Decentralized betting protocol powered by Solana
+,Pianity,,"Mar 02, 2022",Seed,6500000,--,,,,0,0,0,0,0,,Music NFT platform
+,Battle Drones,,"Mar, 2022",--,--,--,,,,0,0,0,0,0,,Top-down drone shooter
+,Fusotao Protocol,,"Feb 16, 2022",Seed,2400000,--,,,,0,0,0,0,0,,Decentralized trading protocol
+,MetaStreet,,"Feb 09, 2022",Seed,14000000,--,,,,0,0,0,0,0,,Liquidity protocol for NFT credit markets
+,EXA Finance,,"Jan 25, 2022",Seed,2000000,--,,,,0,0,0,0,0,,NFT marketplace on Algorand
+,DarleyGo,,"Jan 02, 2022",Seed,--,10000000,,,,0,0,0,0,0,,Horseracing game built on Solana
+,Sanctum,,"Dec 21, 2021",Seed,5750000,--,,,,0,0,0,0,0,,Solana 's LSD Protocol
+,Unique Venture Clubs,,"Dec 17, 2021",--,3000000,--,,,,0,0,0,0,0,,Democratizing investing and asset management
+,Bridgesplit,,"Dec 17, 2021",Seed,4250000,--,,,,0,0,0,0,0,,Tokenize and build financial products for unique assets
+,Hawksight,,"Dec 09, 2021",--,4200000,--,,,,0,0,0,0,0,,Solana’s Yield Aggregator
+,Meanfi,,"Nov 29, 2021",Seed,3500000,--,,,,0,0,0,0,0,,All-In-One Treasury Management Platform
+,Zebec Protocol,,"Nov 10, 2021",Seed,6000000,--,,,,0,0,0,0,0,,Real-time streaming payment protocol
+,Minima,,"Oct 26, 2021",Series A,6500000,--,,,,0,0,0,0,0,,IoT data transmission layer
+,BitBrawl,,"Jan, 2022",--,3000000,--,,,,0,0,0,0,0,,Cross-Chain Platformer Fighting Game
+,NEAR Protocol,,,,,,,,,0,0,0,0,0,,Layer-one blockchain
+,The Graph,,,,,,,,,0,0,0,0,0,,Decentralized protocol for indexing and querying blockchain data
+,Solana,,,,,,,,,0,0,0,0,0,,High performance underlying blockchain
+,Arweave,,,,,,,,,0,0,0,0,0,,Decentralized Data Storage Protocol
+,Cosmos,,,,,,,,,0,0,0,0,0,,The Internet of Blockchains
+,Sui,,,,,,,,,0,0,0,0,0,,Layer 1 blockchain
+,Secret Network,,,,,,,,,0,0,0,0,0,,Private blockchain network based on Cosmos SDK
+,Star Atlas,,,,,,,,,0,0,0,0,0,,Next-gen gaming metaverse
+,Aperture Finance,,,,,,,,,0,0,0,0,0,,AI-powered Intent Based Infrastructure
+,Pocket Network,,,,,,,,,0,0,0,0,0,,Blockchain data ecosystem for Web3 applications
+,LimeWire,,,,,,,,,0,0,0,0,0,,Marketplace for digital collectibles
+,Sweatcoin,,,,,,,,,0,0,0,0,0,,Move-to-Earn app
+,WeFi,,,,,,,,,0,0,0,0,0,,Non-custodial money market protocol
+,Levana Protocol,,,,,,,,,0,0,0,0,0,,Perps and Options on Cosmos
+,Affyn,,,,,,,,,0,0,0,0,0,,Geolocation-based metaverse that converges the virtual and real world
+,Chia,,,,,,,,,0,0,0,0,0,,Blockchain and smart transaction platform
+,Crossmint,,,,,,,,,0,0,0,0,0,,Fiat on-ramp for NFTs
+,NIM Network,,,,,,,,,0,0,0,0,0,,AI game chain based on Dymension
+,Marinade Finance,,,,,,,,,0,0,0,0,0,,Liquid Staking Protocol on Solana
+,Fableborne / Pixion Games,,,,,,,,,0,0,0,0,0,,Isometric play-to-own multiplayer game
+,Magna,,,,,,,,,0,0,0,0,0,,Unlocking liquidity with liquid vesting
+,Connect3,,,,,,,,,0,0,0,0,0,,Social gateway to the fabulous Web3 world
+,Blocklords,,,,,,,,,0,0,0,0,0,,Web3 strategy game
+,AlgoDAO,,,,,,,,,0,0,0,0,0,,Infrastructure and Web3 Accelerators
+,AID:Tech,,,,,,,,,0,0,0,0,0,,On-chain reputation & rewards for Web3
+,Tamago,,,,,,,,,0,0,0,0,0,,Decentralized audio streaming platform
+,Dypius,,,,,,,,,0,0,0,0,0,,Decentralized ecosystem
+,Soil,,,,,,,,,0,0,0,0,0,,DeFi infrastructure backed by RWA
+,SeatlabNFT,,,,,,,,,0,0,0,0,0,,An NFT ticketing platform
+,Stackup,,,,,,,,,0,0,0,0,0,,Open source tools for building Web3 apps with account abstraction
+,Dante Network,,,,,,,,,0,0,0,0,0,,General middle layer
+,ZigZag,,,,,,,,,0,0,0,0,0,,Native DEX built on ZK Rollups
+,Deepwaters,,,,,,,,,0,0,0,0,0,,A system of decentralized finance (DeFi) applications
+,Algodex,,,,,,,,,0,0,0,0,0,,Decentralized Exchange on Algorand
+,Exotic markets,,,,,,,,,0,0,0,0,0,,Positional market created around an open ended market question
+,Fanfury,,,,,,,,,0,0,0,0,0,,Fantasy Sports World
+,Meta Pool,,,,,,,,,0,0,0,0,0,,Liquid Staking Protocol Built on the NEAR Blockchain
+,Algomint,,,,,,,,,0,0,0,0,0,,"Bringing BTC, ETH & stablecoins to Algorand"
+,Campground,,,,,,,,,0,0,0,0,0,,Web3 Multimedia Creator Tool
+,GARD,,,,,,,,,0,0,0,0,0,,Decentralized Money & Fixed Yield Products on Algorand
+,Nimble,,,,,,,,,0,0,0,0,0,,Decentralized insurance platform built on the Algorand blockchain
+,inite,,,,,,,,,0,0,0,0,0,,Web3 lifestyle ideas generation app
+,Homespace,,,,,,,,,0,0,0,0,0,,Decentralized NFT Metaverse with Architecture and Artificial Intelligence
+,SolStreet,,,,,,,,,0,0,0,0,0,,Decentralized fund marketplace protocol built on Solana
+,Vaporwave Finance,,,,,,,,,0,0,0,0,0,,Yield Optimizer on Aurora
+,Endemic,,,,,,,,,0,0,0,0,0,,Decentralized marketplace for digital assets on Aurora
+,GYRIS,,,,,,,,,0,0,0,0,0,,NFT Saga MMORPG
+,Myriad Social,,,,,,,,,0,0,0,0,0,,Decentralized social network
+,FrodoBots,,,,,,,,,0,0,0,0,0,,Open-world game
+,Dojo Finance,,,,,,,,,0,0,0,0,0,,An all-in-one wallet
+,Atocha Protocol,,,,,,,,,0,0,0,0,0,,A web3 puzzle game protocol
+,Jump DeFi,,,,,,,,,0,0,0,0,0,,One-stop DeFi platform
+,Playible,,,,,,,,,0,0,0,0,0,,NFT fantasy sports platform
+,PinkPea Finance,,,,,,,,,0,0,0,0,0,,DeFi Yield Optimizer
+,HStarter,,,,,,,,,0,0,0,0,0,,Decentralized innovation engine for Hedera
+,VerdeX,,,,,,,,,0,0,0,0,0,,All-in-one DeFi platform
+,ChainScore,,,,,,,,,0,0,0,0,0,,Decentralized credit scoring protocol
+,Solclout,,,,,,,,,0,0,0,0,0,,Social DeFi Platform built on Solana
+,Outlet Finance,,,,,,,,,0,0,0,0,0,,Crypto Wallet

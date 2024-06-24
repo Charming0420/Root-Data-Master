@@ -16,7 +16,14 @@ def setup_driver():
     chrome_options.add_argument("--lang=en-US")
     chrome_options.add_argument("--start-maximized")
     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-
+    
+    # 添加无头模式选项
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--disable-infobars")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
@@ -176,16 +183,7 @@ def main(url):
     df = df[['token_name', 'project_name', 'Sector', 'last_funding_time', 'funding_round', 'total_funding', 'valuation', 'Price', 'MC', 'FDV', 'Exchange']]
     df.columns = ['Token', 'Name', 'Sector', 'Date', 'Round', 'Total Funding', 'Valuation', 'Price', 'MC', 'FDV', 'Exchange']
     df.to_csv(progress_csv_path, index=False)
-    # print(f"CSV file '{progress_csv_path}' created successfully.")
 
-    # for item in all_items:
-    #     print(f"Project Name: {item['project_name']}")
-    #     print(f"Token Name: {item['token_name']}")
-    #     print(f"Funding Round: {item['funding_round']}")
-    #     print(f"Total Funding: {item['total_funding']}")
-    #     print(f"Valuation: {item['valuation']}")
-    #     print(f"Last Funding Time: {item['last_funding_time']}")
-    #     print("-" * 20)
 
 if __name__ == "__main__":
     main()
