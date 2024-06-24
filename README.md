@@ -1,27 +1,41 @@
-### JS 代替 Python 做網頁操作 — 切換視窗 1
+# CatchData 專案
 
-```
-document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(2)").click();
-```
+這個專案可以幫助你自動從指定的 URL 中抓取數據並生成報告。報告將會保存到 `Data` 資料夾中。
 
-### JS 代替 Python 做網頁操作 — 切換頁面
+## 先決條件
 
-```
-document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div:nth-child(4) > div.pagination-container.d-flex.justify-center > div > button.btn-next").click();
-```
+在開始之前，請確保你已經安裝了以下軟體：
 
-### JS 代替 Python 做網頁操作 — 切換視窗 2
+- Python 3.6 或以上版本
+- `pip3`
 
-```
-document.querySelector("#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button.btn.v-btn.v-btn--text.theme--light.v-size--default.active").click();
-```
+## 安裝步驟
 
-### 待辦清單
+1. clone 這個 Repo 到本地端：
+   ```sh
+   git clone <你的倉庫網址>
+   ```
+2. 進入到 `CatchData` 資料夾：
 
-- ✅ 輸入網址 zh 自動轉換
-- ✅ 產出 CSV Data 換到 Data Folder 當中
-- ✅ 加入 catchVCInvestment.py 的項目 Name 到 CSV
-- ✅ 加入 catchProjectExchange.py 的 Exchange 數據到 CSV
-- 沒有 Token 的 VC 會報錯
+   ```sh
+   cd CatchData
+   ```
 
-### 計數 Selector
+3. 安裝所需的 Python 套件：
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+## 執行專案
+
+1. 確保你在 `CatchData` 資料夾中。
+2. 使用以下命令來執行程式：
+
+   ```sh
+   python3 main.py
+   ```
+
+3. 當程式執行時，會要求你輸入一個 URL。輸入你想要抓取數據的 URL 並按下 Enter 鍵。
+4. 程式將會開始抓取數據並生成報告。完成後，報告會自動保存到 `Data` 資料夾中。
+
+- 如果有跳出錯誤提示，那就缺什麼裝什麼，都用 pip3 或 pip install 去裝即可
