@@ -112,19 +112,48 @@ def click_next_page(driver, is_investor):
     except Exception as e:
         print(f"Failed to click next button: {e}")
         return False
+    
+def get_total_items(driver):
+    selectors = [
+        '#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.tokens-list > div.pagination-container.d-flex.justify-center > div > span',
+    ]
+
+    for selector in selectors:
+        try:
+            WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, selector))
+            )
+            total_items_text = driver.execute_script(f"""
+                var selector = '{selector}';
+                var totalElement = document.querySelector(selector);
+                if (totalElement) {{
+                    var totalText = totalElement.textContent.trim();
+                    var totalNumber = totalText.match(/\\d+/);
+                    return parseInt(totalNumber[0], 10);  // 确保返回的是数字
+                }}
+                return null;
+            """)
+            if total_items_text:
+                # print(f"Total items: {total_items_text}")
+                return total_items_text
+        except Exception as e:
+            print(f"Error getting total items with selector {selector}: {e}")
+
+    print("Could not find the total items element or extract the number.")
+    return None
 
 def main(url):
     is_investor = "Investors/detail" in url
     driver = setup_driver()
     driver.get(url)
 
-    time.sleep(3)
+    time.sleep(1.5)
 
     current_url = driver.current_url
     if "zh" in current_url:
         driver.get(url)
         # print("Redirected to the correct URL.")
-        time.sleep(3)
+        time.sleep(1.5)
 
     try:
         if is_investor:
@@ -139,7 +168,7 @@ def main(url):
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#app > div > main > div > div > div.row.detail.common_detail.justify-start.justify-md-center > div.detail_l.col-sm-12.col-md-8.col-lg-9.col-xl-9.col-12 > div.v-window.detail_tab_items.v-item-group.theme--light.v-tabs-items > div > div > div.investment > div.d-flex.flex-row.align-center.justify-space-between > div.d-flex.flex-column.flex-md-row.align-end.align-md-center > div > button:nth-child(2)")))
         driver.execute_script(initial_button_js)
         # print("Initial button clicked successfully.")
-        time.sleep(2)
+        time.sleep(0.5)
     except Exception as e:
         print(f"Failed to click initial button: {e}")
         driver.quit()
@@ -148,25 +177,25 @@ def main(url):
     all_items = []
     page_number = 1
 
+    total_items = get_total_items(driver)
     while True:
         try:
-            # print(f"Parsing page {page_number}")
             items = parse_table_page(driver, page_number)
             if not items:
-                # print("No items found on this page, stopping.")
                 break
             all_items.extend(items)
 
-            if len(items) < 20:
-                # print(f"Stopping as the row count is {len(items)}.")
+            if total_items and len(all_items) >= total_items:
                 break
 
+            if len(items) < 30:
+                break
+        
             prev_rows = len(driver.find_elements(By.CSS_SELECTOR, "table tbody tr"))
             if not click_next_page(driver, is_investor):
                 break
             time.sleep(1)  # 增加等待時間，確保頁面完全加載
-           
-            # print(f"Successfully navigated to page {page_number + 1}")
+
             page_number += 1
         except Exception as e:
             print(f"An error occurred while parsing page {page_number}: {e}")

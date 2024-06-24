@@ -3,6 +3,9 @@
 import time
 import os
 import pandas as pd
+import itertools
+import threading
+import sys
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
@@ -10,7 +13,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from tqdm import tqdm
 
 def setup_driver():
     chrome_options = Options()
@@ -44,7 +46,7 @@ def update_dataframe(df, investment_data, exchange_data):
     new_items = 0
     updated_items = 0
 
-    for item in tqdm(investment_data, desc="Integrating investment data"):
+    for item in investment_data:
         item_name = item['name'].replace('*', '')
         if item_name.lower() not in existing_names:
             new_row = {
@@ -86,7 +88,7 @@ def update_dataframe(df, investment_data, exchange_data):
     if 'Bybit' not in df.columns:
         df.insert(14, 'Bybit', 0)
 
-    for exchange_item in tqdm(exchange_data, desc="Integrating exchange data"):
+    for exchange_item in exchange_data:
         token_name = exchange_item['name_value']
         if token_name in df['Token'].values:
             index = df[df['Token'] == token_name].index[0]
@@ -110,5 +112,18 @@ def save_dataframe(df, title):
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     output_file_path = os.path.join(data_dir, f'{title}_{timestamp}.csv')
     df.to_csv(output_file_path, index=False)
-    print(f"⎷ CSV file '{title}_{timestamp}.csv' created successfully.")
+    print(f"\n ⎷ CSV file '{title}_{timestamp}.csv' created successfully.")
     return output_file_path
+
+def spinning_cursor():
+    while True:
+        for cursor in '|/-\\':
+            yield cursor
+
+def display_spinner(stop_event):
+    spinner = spinning_cursor()
+    while not stop_event.is_set():
+        sys.stdout.write(f"Loading... {next(spinner)}")
+        sys.stdout.flush()
+        time.sleep(0.1)
+        sys.stdout.write('\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b')  # 清除上一行的 "Loading... " 字符串

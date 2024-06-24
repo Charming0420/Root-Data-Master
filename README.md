@@ -22,3 +22,6 @@ document.querySelector("#app > div > main > div > div > div.row.detail.common_de
 - ✅ 產出 CSV Data 換到 Data Folder 當中
 - ✅ 加入 catchVCInvestment.py 的項目 Name 到 CSV
 - ✅ 加入 catchProjectExchange.py 的 Exchange 數據到 CSV
+- 沒有 Token 的 VC 會報錯
+
+### 計數 Selector
